@@ -65,8 +65,21 @@ def add_user():
 
     if st.button("Add User"):
         before = db.get_user_count()
-        if name and email:
-            db.add_user(name, email)
+        if name and matches and runs and player_type and batting_type and bowling_type and fours and sixes and fifties and hundreds and wickets:
+            data = {
+                        "name": name,
+                        "matches": matches,
+                        "runs": runs,
+                        "player_type": player_type,
+                        "batting_type": batting_type,
+                        "bowling_type": bowling_type,
+                        "fours": fours,
+                        "sixes": sixes,
+                        "fifties": fifties,
+                        "hundreds": hundreds,
+                        "wickets": wickets
+                    }
+            db.add_user(input_data=data)
             after = db.get_user_count()
             st.success(f"User '{name}' added.")
             st.info(f"Users before: {before}, after: {after}")
@@ -93,16 +106,45 @@ def update_user():
 
 def delete_user():
     st.subheader("❌ Delete User")
-    users = db.get_users()
-    user_dict = {f"{u[0]}: {u[1]} ({u[2]})": u[0] for u in users}
 
-    if users:
-        selected = st.selectbox("Select a user to delete", list(user_dict.keys()))
-        if st.button("Delete User"):
-            db.delete_user(user_dict[selected])
-            st.success("User deleted.")
+    all_users = db.get_users()  # list of tuples (id, name, email, ...)
+    # Build a list of user display strings
+    user_display_list = [f"{u[0]}: {u[1]} ({u[2]})" for u in all_users]
+
+    # Search box for filtering
+    search_term = st.text_input("Search user by name to delete")
+
+    if search_term:
+        # Filter users whose name contains the search term (case-insensitive)
+        filtered_users = [u for u in all_users if search_term.lower() in u[1].lower()]
+        if filtered_users:
+            filtered_display = [f"{u[0]}: {u[1]} ({u[2]})" for u in filtered_users]
+        else:
+            filtered_display = []
     else:
-        st.info("No users to delete.")
+        # No search term => show all users
+        filtered_display = user_display_list
+
+    if filtered_display:
+        selected = st.selectbox("Select a user to delete", filtered_display)
+        # Get user info from selected string
+        selected_id = int(selected.split(":")[0])
+        selected_user = next((u for u in all_users if u[0] == selected_id), None)
+        user_name = selected_user[1]
+
+        # Confirmation input
+        confirm_text = st.text_input(f"Type 'delete {user_name}' to confirm")
+
+        if st.button("Delete User"):
+            if confirm_text == f"delete {user_name}":
+                db.delete_user(selected_id)
+                st.success(f"User '{user_name}' deleted.")
+            else:
+                st.error("Confirmation text does not match. Deletion aborted.")
+    else:
+        st.info("No users found matching your search.")
+
+
 
 def view_users():
     st.subheader("📋 All Users")
