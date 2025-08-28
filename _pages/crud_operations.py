@@ -20,47 +20,26 @@ def render():
 def add_user():
     st.subheader("➕ Add New User")
 
-    # Row 1: ID and Name
-    name = st.text_input("Full Name")
+    # Row 1: player_id and name
     row1_col1, row1_col2 = st.columns(2)
     with row1_col1:
-        matches = st.text_input("Matches Played")
+        player_id = st.text_input("Player ID")
     with row1_col2:
-        player_type = st.selectbox("Player Type", ["", "Batsman", "Bowler", "All Rounder"])
+        name = st.text_input("Name")
 
-    # Row 2: Email and Age
+    # Row 2: matches and innings
     row2_col1, row2_col2 = st.columns(2)
     with row2_col1:
-        runs = st.text_input("Runs Scored")
+        matches = st.text_input("Matches")
     with row2_col2:
-        wickets = st.text_input("Wickets Taken")
+        innings = st.text_input("Innings")
 
-    # Row 3: Batting and Bowling Type
+    # Row 3: runs and average
     row3_col1, row3_col2 = st.columns(2)
     with row3_col1:
-        batting_type = st.selectbox("Batting Type", ["", "Right Handed", "Left Handed"])
+        runs = st.text_input("Runs")
     with row3_col2:
-        bowling_type = st.selectbox("Bowling Type", ["", "Right Arm Fast", "Left Arm Fast", 
-                                                     "Right Arm Spin", "Left Arm Spin", 
-                                                     "Right Arm Medium", "Left Arm Medium"])
-    
-    # Row 4: Fours and Sixes
-    row4_col1, row4_col2 = st.columns(2)
-    with row4_col1:
-        fours = st.text_input("4's")
-    with row4_col2:
-        sixes = st.text_input("6's")
-    
-    # Row 5: Fifties and Hundreds
-    row5_col1, row5_col2 = st.columns(2)
-    with row5_col1:
-        fifties = st.text_input("50's")
-    with row5_col2:
-        hundreds = st.text_input("100's")
-    
-    # Row 6: Hundreds
-    # row6_col1, row6_col2 = st.columns(2)
-    # with row6_col1:
+        average = st.text_input("Average")
         
 
     if st.button("Add User"):
@@ -70,14 +49,9 @@ def add_user():
                         "name": name,
                         "matches": matches,
                         "runs": runs,
-                        "player_type": player_type,
-                        "batting_type": batting_type,
-                        "bowling_type": bowling_type,
-                        "fours": fours,
-                        "sixes": sixes,
-                        "fifties": fifties,
-                        "hundreds": hundreds,
-                        "wickets": wickets
+                        "player_id": player_id,
+                        "innings": innings,
+                        "average": average
                     }
             db.add_user(input_data=data)
             after = db.get_user_count()
@@ -95,11 +69,22 @@ def update_user():
         selected = st.selectbox("Select a user to update", list(user_dict.keys()))
         selected_user = user_dict[selected]
 
-        new_name = st.text_input("New Name", value=selected_user[1])
-        new_email = st.text_input("New Email", value=selected_user[2])
+        new_player_id = st.text_input("New Player ID", value=selected_user[1])
+        new_name = st.text_input("New Name", value=selected_user[2])
+        new_matches = st.text_input("New Matches", value=selected_user[3])
+        new_innings = st.text_input("New Innings", value=selected_user[4])
+        new_runs = st.text_input("New Runs", value=selected_user[5])
+        new_average = st.text_input("New Average", value=selected_user[6])
+
+        new_data = {"player_id": new_player_id,
+                    "name": new_name,
+                    "matches": new_matches,
+                    "innings": new_innings,
+                    "runs": new_runs,
+                    "average": new_average}
 
         if st.button("Update User"):
-            db.update_user(selected_user[0], new_name, new_email)
+            db.update_user(input_data=new_data)
             st.success("User updated.")
     else:
         st.info("No users found to update.")

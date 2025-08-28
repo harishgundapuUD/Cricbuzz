@@ -64,14 +64,12 @@ class SQLQuery:
         try:
             self.cursor.execute("""
                                     CREATE TABLE IF NOT EXISTS players (
-                                                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                                                        player_id INT PRIMARY KEY,
                                                                         name VARCHAR(100),
                                                                         matches INT,
-                                                                        player_type VARCHAR(50),
+                                                                        innings VARCHAR(50),
                                                                         runs INT,
-                                                                        wickets INT,
-                                                                        batting_type VARCHAR(50),
-                                                                        bowling_type VARCHAR(50),
+                                                                        average FLOAT,
                                                                         )
                                     """)
             self.connection.commit()
@@ -90,9 +88,9 @@ class SQLQuery:
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
         initial_count = self.get_user_count()
-        query = "INSERT INTO players (name, matches, runs, player_type, batting_type, bowling_type) VALUES (%s, %s, %s, %s, %s, %s)"
-        data = (input_data.get("name"), input_data.get("matches"), input_data.get("runs"), 
-                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"))
+        query = "INSERT INTO players (player_id, name, matches, innings, runs, average) VALUES (%s, %s, %s, %s, %s, %s)"
+        data = (input_data.get("player_id"), input_data.get("name"), input_data.get("matches"), 
+                input_data.get("innings"), input_data.get("runs"), input_data.get("average"))
         self.cursor.execute(query, data)
         self.connection.commit()
         final_count = self.get_user_count()
@@ -109,10 +107,9 @@ class SQLQuery:
     def update_user(self, input_data):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
-        query = "UPDATE players SET name=%s, matches=%s, runs=%s, player_type=%s, batting_type=%s, " \
-                "bowling_type=%s WHERE id=%s"
-        data = (input_data.get("name"), input_data.get("matches"), input_data.get("runs"), 
-                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"))
+        query = "UPDATE players SET player_id=%s, name=%s, matches=%s, innings=%s, runs=%s, average=%s WHERE id=%s"
+        data = (input.get("player_id"), input_data.get("name"), input_data.get("matches"), input_data.get("innings"), 
+                input_data.get("runs"), input_data.get("average"), input_data.get("player_id"))
         self.cursor.execute(query, data)
         self.connection.commit()
         return True
