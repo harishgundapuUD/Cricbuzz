@@ -72,10 +72,6 @@ class SQLQuery:
                                                                         wickets INT,
                                                                         batting_type VARCHAR(50),
                                                                         bowling_type VARCHAR(50),
-                                                                        fours INT,
-                                                                        sixes INT,
-                                                                        fifties INT,
-                                                                        hundreds INT
                                                                         )
                                     """)
             self.connection.commit()
@@ -94,12 +90,9 @@ class SQLQuery:
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
         initial_count = self.get_user_count()
-        query = "INSERT INTO players (name, matches, runs, player_type, batting_type, bowling_type, fours, " \
-                "sixes, fifties, hundreds, wickets) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO players (name, matches, runs, player_type, batting_type, bowling_type) VALUES (%s, %s, %s, %s, %s, %s)"
         data = (input_data.get("name"), input_data.get("matches"), input_data.get("runs"), 
-                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"),
-                input_data.get("fours"), input_data.get("sixes"), input_data.get("fifties"), input_data.get("hundreds"),
-                input_data.get("wickets"))
+                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"))
         self.cursor.execute(query, data)
         self.connection.commit()
         final_count = self.get_user_count()
@@ -117,11 +110,9 @@ class SQLQuery:
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
         query = "UPDATE players SET name=%s, matches=%s, runs=%s, player_type=%s, batting_type=%s, " \
-                "bowling_type=%s, fours=%s, sixes=%s, fifties=%s, hundreds=%s, wickets=%s WHERE id=%s"
+                "bowling_type=%s WHERE id=%s"
         data = (input_data.get("name"), input_data.get("matches"), input_data.get("runs"), 
-                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"),
-                input_data.get("fours"), input_data.get("sixes"), input_data.get("fifties"), 
-                input_data.get("hundreds"), input_data.get("wickets"), input_data.get("id"))
+                input_data.get("player_type"), input_data.get("batting_type"), input_data.get("bowling_type"))
         self.cursor.execute(query, data)
         self.connection.commit()
         return True
