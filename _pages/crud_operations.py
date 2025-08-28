@@ -44,7 +44,7 @@ def add_user():
 
     if st.button("Add User"):
         before = db.get_user_count()
-        if name and matches and runs and player_type and batting_type and bowling_type and fours and sixes and fifties and hundreds and wickets:
+        if name and matches and runs and player_id and innings and average:
             data = {
                         "name": name,
                         "matches": matches,
@@ -128,8 +128,6 @@ def delete_user():
                 st.error("Confirmation text does not match. Deletion aborted.")
     else:
         st.info("No users found matching your search.")
-
-
 
 def view_users():
     st.subheader("📋 All Users")
