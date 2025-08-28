@@ -28,4 +28,3 @@
 
     👉**Ready to dive in?**
     Start exploring now and unlock a new way to watch, analyze, and understand cricket.
-    """
