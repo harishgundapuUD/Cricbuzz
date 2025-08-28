@@ -93,124 +93,212 @@ def render_match_card(match):
             return match
     return None
 
+# def render_detailed_scorecard(scorecard_data):
+#     st.header("📊 Detailed Scorecard")
+
+#     if not scorecard_data or "scorecard" not in scorecard_data:
+#         st.warning("⚠️ Scorecard data not available")
+#         return
+
+#     for innings in scorecard_data["scorecard"]:
+#         team_name = innings.get("batteamname", f"Innings {innings.get('inningsid')}")
+#         with st.expander(f"{team_name} Innings"):
+
+#             # 🏏 Batting
+#             batsmen = innings.get("batsman", [])
+#             if batsmen:
+#                 st.subheader("Batting")
+#                 df_bat = pd.DataFrame(batsmen)
+#                 df_bat = df_bat[["name", "runs", "balls", "fours", "sixes", "strkrate", "outdec"]]
+#                 df_bat.columns = ["Batsman", "Runs", "Balls", "4s", "6s", "Strike Rate", "Status"]
+#                 # st.dataframe(df_bat, use_container_width=True)
+
+#                 # Convert all columns to string so alignment works uniformly
+#                 df_bat = df_bat.astype(str)
+
+#                 # Force all columns to left align
+#                 styled_bat = df_bat.style.set_properties(**{'text-align': 'left'})
+#                 styled_bat = styled_bat.set_table_styles(
+#                     [dict(selector='th', props=[('text-align', 'left')])]
+#                 )
+
+#                 st.table(styled_bat)
+
+#             # 🎯 Bowling
+#             bowlers = innings.get("bowler", [])
+#             if bowlers:
+#                 st.subheader("Bowling")
+#                 df_bowl = pd.DataFrame(bowlers)
+#                 df_bowl = df_bowl[["name", "overs", "maidens", "runs", "wickets", "economy"]]
+#                 df_bowl.columns = ["Bowler", "Overs", "Maiden", "Runs", "Wickets", "Economy"]
+#                 # st.dataframe(df_bowl, use_container_width=True)
+
+#                 # Convert all columns to string so alignment works uniformly
+#                 df_bowl = df_bowl.astype(str)
+
+#                 # Force all columns to left align
+#                 styled_bowl = df_bowl.style.set_properties(**{'text-align': 'left'})
+#                 styled_bowl = styled_bowl.set_table_styles(
+#                     [dict(selector='th', props=[('text-align', 'left')])]
+#                 )
+
+#                 st.table(styled_bowl)
+
+#             # ⚡ Fall of Wickets
+#             fow = innings.get("fow", {}).get("fow", [])
+#             if fow:
+#                 st.subheader("Fall of Wickets")
+#                 fow_df = pd.DataFrame(fow)
+#                 fow_df = fow_df[["batsmanname", "runs", "overnbr"]]
+#                 fow_df.columns = ["Batsman Out", "Score", "Over"]
+#                 # st.table(fow_df)
+
+#                 # Convert all columns to string so alignment works uniformly
+#                 fow_df = fow_df.astype(str)
+
+#                 # Force all columns to left align
+#                 styled_fow = fow_df.style.set_properties(**{'text-align': 'left'})
+#                 styled_fow = styled_fow.set_table_styles(
+#                     [dict(selector='th', props=[('text-align', 'left')])]
+#                 )
+
+#                 st.table(styled_fow)
+
+#             # 🤝 Partnerships
+#             partnerships = innings.get("partnership", {}).get("partnership", [])
+#             if partnerships:
+#                 st.subheader("Partnerships")
+#                 part_df = pd.DataFrame(partnerships)
+#                 part_df = part_df[["bat1name", "bat1runs", "bat2name", "bat2runs", "totalruns", "totalballs"]]
+#                 part_df.columns = ["Batsman 1", "Runs (B1)", "Batsman 2", "Runs (B2)", "Total Runs", "Balls Faced"]
+#                 # st.table(part_df)
+
+#                 # Convert all columns to string so alignment works uniformly
+#                 part_df = part_df.astype(str)
+
+#                 # Force all columns to left align
+#                 styled_part = part_df.style.set_properties(**{'text-align': 'left'})
+#                 styled_part = styled_part.set_table_styles(
+#                     [dict(selector='th', props=[('text-align', 'left')])]
+#                 )
+
+#                 st.table(styled_part)
+
+
+#             # ⚡ Powerplays
+#             powerplays = innings.get("pp", {}).get("powerplay", [])
+#             if powerplays:
+#                 st.subheader("Powerplays")
+#                 pp_df = pd.DataFrame(powerplays)
+
+#                 # Convert to Title Case
+#                 if "pptype" in pp_df.columns:
+#                     pp_df["pptype"] = pp_df["pptype"].str.title()
+
+#                 pp_df = pp_df[["pptype", "ovrfrom", "ovrto", "run", "wickets"]]
+#                 pp_df.columns = ["Type", "From", "To", "Runs", "Wkts"]
+#                 # st.table(pp_df)
+
+#                 # Convert all columns to string so alignment works uniformly
+#                 pp_df = pp_df.astype(str)
+
+#                 # Force all columns to left align
+#                 styled_pp = pp_df.style.set_properties(**{'text-align': 'left'})
+#                 styled_pp = styled_pp.set_table_styles(
+#                     [dict(selector='th', props=[('text-align', 'left')])]
+#                 )
+
+#                 st.table(styled_pp)
+
+#             # ➕ Extras
+#             extras = innings.get("extras", {})
+#             if extras:
+#                 st.markdown(
+#                     f"**Extras:** {extras.get('total',0)} "
+#                     f"(b {extras.get('byes',0)}, lb {extras.get('legbyes',0)}, "
+#                     f"w {extras.get('wides',0)}, nb {extras.get('noballs',0)}, p {extras.get('penalty',0)})"
+#                 )
+
+#             # 📌 Final Total
+#             st.markdown(
+#                 f"**Total:** {innings.get('score','-')}/{innings.get('wickets','-')} "
+#                 f"({innings.get('overs','-')} overs, RR: {innings.get('runrate','-')})"
+#             )
+
 def render_detailed_scorecard(scorecard_data):
     st.header("📊 Detailed Scorecard")
+    st.markdown(
+    "<hr style='border: 3px solid #000; margin: 10px 0;'>",
+    unsafe_allow_html=True
+)
 
     if not scorecard_data or "scorecard" not in scorecard_data:
         st.warning("⚠️ Scorecard data not available")
         return
 
-    for innings in scorecard_data["scorecard"]:
-        team_name = innings.get("batteamname", f"Innings {innings.get('inningsid')}")
-        with st.expander(f"{team_name} Innings"):
+    # Single scrollable container
+    with st.container():
+        # st.markdown(
+        #     "<div style='max-height:700px; overflow-y:auto; padding:10px; border:1px solid #ccc; border-radius:10px;'>",
+        #     unsafe_allow_html=True
+        # )
 
-            # 🏏 Batting
+        for innings in scorecard_data["scorecard"]:
+            team_name = innings.get("batteamname", f"Innings {innings.get('inningsid')}")
+            st.subheader(f"🏏 {team_name} Innings")
+
+            # Batting
             batsmen = innings.get("batsman", [])
             if batsmen:
-                st.subheader("Batting")
-                df_bat = pd.DataFrame(batsmen)
-                df_bat = df_bat[["name", "runs", "balls", "fours", "sixes", "strkrate", "outdec"]]
+                st.markdown("### Batting")
+                df_bat = pd.DataFrame(batsmen)[
+                    ["name", "runs", "balls", "fours", "sixes", "strkrate", "outdec"]
+                ]
                 df_bat.columns = ["Batsman", "Runs", "Balls", "4s", "6s", "Strike Rate", "Status"]
-                # st.dataframe(df_bat, use_container_width=True)
+                st.dataframe(df_bat, use_container_width=True, height=200)
 
-                # Convert all columns to string so alignment works uniformly
-                df_bat = df_bat.astype(str)
-
-                # Force all columns to left align
-                styled_bat = df_bat.style.set_properties(**{'text-align': 'left'})
-                styled_bat = styled_bat.set_table_styles(
-                    [dict(selector='th', props=[('text-align', 'left')])]
-                )
-
-                st.table(styled_bat)
-
-            # 🎯 Bowling
+            # Bowling
             bowlers = innings.get("bowler", [])
             if bowlers:
-                st.subheader("Bowling")
-                df_bowl = pd.DataFrame(bowlers)
-                df_bowl = df_bowl[["name", "overs", "maidens", "runs", "wickets", "economy"]]
+                st.markdown("### Bowling")
+                df_bowl = pd.DataFrame(bowlers)[
+                    ["name", "overs", "maidens", "runs", "wickets", "economy"]
+                ]
                 df_bowl.columns = ["Bowler", "Overs", "Maiden", "Runs", "Wickets", "Economy"]
-                # st.dataframe(df_bowl, use_container_width=True)
+                st.dataframe(df_bowl, use_container_width=True, height=200)
 
-                # Convert all columns to string so alignment works uniformly
-                df_bowl = df_bowl.astype(str)
-
-                # Force all columns to left align
-                styled_bowl = df_bowl.style.set_properties(**{'text-align': 'left'})
-                styled_bowl = styled_bowl.set_table_styles(
-                    [dict(selector='th', props=[('text-align', 'left')])]
-                )
-
-                st.table(styled_bowl)
-
-            # ⚡ Fall of Wickets
+            # Fall of Wickets
             fow = innings.get("fow", {}).get("fow", [])
             if fow:
-                st.subheader("Fall of Wickets")
-                fow_df = pd.DataFrame(fow)
-                fow_df = fow_df[["batsmanname", "runs", "overnbr"]]
+                st.markdown("### Fall of Wickets")
+                fow_df = pd.DataFrame(fow)[["batsmanname", "runs", "overnbr"]]
                 fow_df.columns = ["Batsman Out", "Score", "Over"]
-                # st.table(fow_df)
+                st.dataframe(fow_df, use_container_width=True, height=150)
 
-                # Convert all columns to string so alignment works uniformly
-                fow_df = fow_df.astype(str)
-
-                # Force all columns to left align
-                styled_fow = fow_df.style.set_properties(**{'text-align': 'left'})
-                styled_fow = styled_fow.set_table_styles(
-                    [dict(selector='th', props=[('text-align', 'left')])]
-                )
-
-                st.table(styled_fow)
-
-            # 🤝 Partnerships
+            # Partnerships
             partnerships = innings.get("partnership", {}).get("partnership", [])
             if partnerships:
-                st.subheader("Partnerships")
-                part_df = pd.DataFrame(partnerships)
-                part_df = part_df[["bat1name", "bat1runs", "bat2name", "bat2runs", "totalruns", "totalballs"]]
+                st.markdown("### Partnerships")
+                part_df = pd.DataFrame(partnerships)[
+                    ["bat1name", "bat1runs", "bat2name", "bat2runs", "totalruns", "totalballs"]
+                ]
                 part_df.columns = ["Batsman 1", "Runs (B1)", "Batsman 2", "Runs (B2)", "Total Runs", "Balls Faced"]
-                # st.table(part_df)
+                st.dataframe(part_df, use_container_width=True, height=150)
 
-                # Convert all columns to string so alignment works uniformly
-                part_df = part_df.astype(str)
-
-                # Force all columns to left align
-                styled_part = part_df.style.set_properties(**{'text-align': 'left'})
-                styled_part = styled_part.set_table_styles(
-                    [dict(selector='th', props=[('text-align', 'left')])]
-                )
-
-                st.table(styled_part)
-
-
-            # ⚡ Powerplays
+            # Powerplays
             powerplays = innings.get("pp", {}).get("powerplay", [])
+            # Remove empty dicts
+            powerplays = [pp for pp in powerplays if pp]
             if powerplays:
-                st.subheader("Powerplays")
+                st.markdown("### Powerplays")
                 pp_df = pd.DataFrame(powerplays)
-
-                # Convert to Title Case
                 if "pptype" in pp_df.columns:
                     pp_df["pptype"] = pp_df["pptype"].str.title()
-
                 pp_df = pp_df[["pptype", "ovrfrom", "ovrto", "run", "wickets"]]
                 pp_df.columns = ["Type", "From", "To", "Runs", "Wkts"]
-                # st.table(pp_df)
+                st.dataframe(pp_df, use_container_width=True, height=150)
 
-                # Convert all columns to string so alignment works uniformly
-                pp_df = pp_df.astype(str)
-
-                # Force all columns to left align
-                styled_pp = pp_df.style.set_properties(**{'text-align': 'left'})
-                styled_pp = styled_pp.set_table_styles(
-                    [dict(selector='th', props=[('text-align', 'left')])]
-                )
-
-                st.table(styled_pp)
-
-            # ➕ Extras
+            # Extras
             extras = innings.get("extras", {})
             if extras:
                 st.markdown(
@@ -219,11 +307,19 @@ def render_detailed_scorecard(scorecard_data):
                     f"w {extras.get('wides',0)}, nb {extras.get('noballs',0)}, p {extras.get('penalty',0)})"
                 )
 
-            # 📌 Final Total
+            # Final Total
             st.markdown(
                 f"**Total:** {innings.get('score','-')}/{innings.get('wickets','-')} "
                 f"({innings.get('overs','-')} overs, RR: {innings.get('runrate','-')})"
             )
+
+            st.markdown(
+                            "<hr style='border: 2px solid #000; margin: 10px 0;'>",
+                            unsafe_allow_html=True
+                        )  # separator between innings
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
 
 def update_page(live_response, scorecard_data):
     st.set_page_config(page_title="Live Cricket Scores", layout="wide")
