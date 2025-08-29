@@ -1,0 +1,306 @@
+{
+    "typeMatches": [
+        {
+            "matchType": "International",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10267,
+                        "seriesName": "Sri Lanka tour of Zimbabwe, 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 122940,
+                                    "seriesId": 10267,
+                                    "seriesName": "Sri Lanka tour of Zimbabwe, 2025",
+                                    "matchDesc": "1st ODI",
+                                    "matchFormat": "ODI",
+                                    "startDate": "1756452600000",
+                                    "endDate": "1756481400000",
+                                    "state": "In Progress",
+                                    "status": "Zimbabwe opt to bowl",
+                                    "team1": {
+                                        "teamId": 5,
+                                        "teamName": "Sri Lanka",
+                                        "teamSName": "SL",
+                                        "imageId": 172119
+                                    },
+                                    "team2": {
+                                        "teamId": 12,
+                                        "teamName": "Zimbabwe",
+                                        "teamSName": "ZIM",
+                                        "imageId": 172127
+                                    },
+                                    "venueInfo": {
+                                        "id": 69,
+                                        "ground": "Harare Sports Club",
+                                        "city": "Harare",
+                                        "timezone": "+02:00",
+                                        "latitude": "-17.814114",
+                                        "longitude": "31.050962"
+                                    },
+                                    "currBatTeamId": 5,
+                                    "seriesStartDt": "1756339200000",
+                                    "seriesEndDt": "1757289600000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 65,
+                                            "wickets": 1,
+                                            "overs": 16.3
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "matchType": "League",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10581,
+                        "seriesName": "Delhi Premier League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 129964,
+                                    "seriesId": 10581,
+                                    "seriesName": "Delhi Premier League 2025",
+                                    "matchDesc": "Qualifier 1",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756456200000",
+                                    "endDate": "1756468800000",
+                                    "state": "Rain",
+                                    "status": "Toss delayed due to rain",
+                                    "team1": {
+                                        "teamId": 2620,
+                                        "teamName": "Central Delhi Kings",
+                                        "teamSName": "CDK",
+                                        "imageId": 731747
+                                    },
+                                    "team2": {
+                                        "teamId": 2601,
+                                        "teamName": "East Delhi Riders",
+                                        "teamSName": "EDR",
+                                        "imageId": 731745
+                                    },
+                                    "venueInfo": {
+                                        "id": 51,
+                                        "ground": "Arun Jaitley Stadium",
+                                        "city": "Delhi",
+                                        "timezone": "+05:30",
+                                        "latitude": "28.637891",
+                                        "longitude": "77.243073"
+                                    },
+                                    "isTournament": true,
+                                    "seriesStartDt": "1754006400000",
+                                    "seriesEndDt": "1756684800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Break"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10620,
+                        "seriesName": "Kerala Cricket League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 130674,
+                                    "seriesId": 10620,
+                                    "seriesName": "Kerala Cricket League 2025",
+                                    "matchDesc": "17th Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756458000000",
+                                    "endDate": "1756470600000",
+                                    "state": "Toss",
+                                    "status": "Aries Kollam Sailors opt to bowl",
+                                    "team1": {
+                                        "teamId": 2752,
+                                        "teamName": "Thrissur Titans",
+                                        "teamSName": "TST",
+                                        "imageId": 731736
+                                    },
+                                    "team2": {
+                                        "teamId": 2778,
+                                        "teamName": "Aries Kollam Sailors",
+                                        "teamSName": "AKS",
+                                        "imageId": 731731
+                                    },
+                                    "venueInfo": {
+                                        "id": 506,
+                                        "ground": "Greenfield International Stadium",
+                                        "city": "Thiruvananthapuram",
+                                        "timezone": "+05:30",
+                                        "latitude": "8.570806",
+                                        "longitude": "76.884328"
+                                    },
+                                    "isTournament": true,
+                                    "seriesStartDt": "1755648000000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Toss"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ad": {
+                        "name": "native_matches",
+                        "layout": "native_large",
+                        "position": 3
+                    }
+                }
+            ]
+        },
+        {
+            "matchType": "Domestic",
+            "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 10311,
+                        "seriesName": "Duleep Trophy 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 123655,
+                                    "seriesId": 10311,
+                                    "seriesName": "Duleep Trophy 2025",
+                                    "matchDesc": "1st Quarter-Final",
+                                    "matchFormat": "TEST",
+                                    "startDate": "1756353600000",
+                                    "endDate": "1756638000000",
+                                    "state": "In Progress",
+                                    "status": "Day 2: 2nd Session - East Zone trail by 329 runs",
+                                    "team1": {
+                                        "teamId": 233,
+                                        "teamName": "North Zone",
+                                        "teamSName": "NZONE",
+                                        "imageId": 172286
+                                    },
+                                    "team2": {
+                                        "teamId": 235,
+                                        "teamName": "East Zone",
+                                        "teamSName": "EZONE",
+                                        "imageId": 172288
+                                    },
+                                    "venueInfo": {
+                                        "id": 1438087,
+                                        "ground": "BCCI Centre of Excellence Ground",
+                                        "city": "Bengaluru",
+                                        "timezone": "+05:30",
+                                        "latitude": "12.978853",
+                                        "longitude": "77.599533"
+                                    },
+                                    "currBatTeamId": 235,
+                                    "seriesStartDt": "1756252800000",
+                                    "seriesEndDt": "1757980800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 405,
+                                            "wickets": 10,
+                                            "overs": 93.2
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 76,
+                                            "wickets": 3,
+                                            "overs": 20.0
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "matchInfo": {
+                                    "matchId": 123661,
+                                    "seriesId": 10311,
+                                    "seriesName": "Duleep Trophy 2025",
+                                    "matchDesc": "2nd Quarter-Final",
+                                    "matchFormat": "TEST",
+                                    "startDate": "1756353600000",
+                                    "endDate": "1756638000000",
+                                    "state": "In Progress",
+                                    "status": "Day 2: 2nd Session - North East Zone trail by 474 runs",
+                                    "team1": {
+                                        "teamId": 237,
+                                        "teamName": "Central Zone",
+                                        "teamSName": "CZONE",
+                                        "imageId": 172290
+                                    },
+                                    "team2": {
+                                        "teamId": 1146,
+                                        "teamName": "North East Zone",
+                                        "teamSName": "NEZONE",
+                                        "imageId": 242496
+                                    },
+                                    "venueInfo": {
+                                        "id": 1438102,
+                                        "ground": "BCCI Centre of Excellence Ground B",
+                                        "city": "Bengaluru",
+                                        "timezone": "+05:30",
+                                        "latitude": "13.174092",
+                                        "longitude": "77.706999"
+                                    },
+                                    "currBatTeamId": 1146,
+                                    "seriesStartDt": "1756252800000",
+                                    "seriesEndDt": "1757980800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 532,
+                                            "wickets": 4,
+                                            "overs": 102.0
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 58,
+                                            "overs": 18.0
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "filters": {
+        "matchType": [
+            "International",
+            "League",
+            "Domestic",
+            "Women"
+        ]
+    },
+    "appIndex": {
+        "seoTitle": "Live Cricket Score - Scorecard and Match Results",
+        "webURL": "www.cricbuzz.com/live-cricket-scores/"
+    },
+    "responseLastUpdated": "1756457463"
+}

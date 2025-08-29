@@ -1,0 +1,19 @@
+{
+    "live_matches": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live",
+                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "query_strings": ""
+                    },
+    "score_card": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/scard",
+                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "query_strings": ""
+                    },
+    "search_player": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search",
+                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "query_strings": {
+                                            "plrN":"{player_name}"
+                                        }
+    }
+}
