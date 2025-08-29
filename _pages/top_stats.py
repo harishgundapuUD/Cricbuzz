@@ -22,7 +22,6 @@ def render():
     searched_data(search_name=search_name, api_data=data)
 
 def searched_data(search_name, api_data):
-
     if search_name:
         matched_players = [p for p in api_data['player'] if search_name.lower() in p['name'].lower()]
         

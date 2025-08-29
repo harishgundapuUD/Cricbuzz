@@ -1,6 +1,7 @@
 import streamlit as st
 
 # Set page configuration
+@st.cache_data
 def render():
     st.set_page_config(
         page_title="Cricket IQ - Analytics Dashboard",

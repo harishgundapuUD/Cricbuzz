@@ -5,9 +5,7 @@ db = SQLQuery()
 
 def render():
     st.title("👥 User Management Page")
-
     menu = st.selectbox("🔽 What would you like to do?", ["Add", "Update", "Delete", "View"])
-
     if menu == "Add":
         add_user()
     elif menu == "Update":
