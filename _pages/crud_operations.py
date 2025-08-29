@@ -39,7 +39,6 @@ def add_user():
     with row3_col2:
         average = st.text_input("Average")
         
-
     if st.button("Add User"):
         before = db.get_user_count()
         if name and matches and runs and player_id and innings and average:

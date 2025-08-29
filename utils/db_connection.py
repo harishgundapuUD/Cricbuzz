@@ -11,12 +11,13 @@ class SQLQuery:
         self.cursor = None
         self.db = db
         self.code_path = os.path.dirname(os.path.abspath(__file__))
+        self.project_data_path = os.path.join(os.path.dirname(self.code_path), "project_data")
         self.get_connection()
         self.create_db()
         self.create_tables()
 
     def read_conifg(self):
-        self.json_path = os.path.join(self.code_path, "config.json")
+        self.json_path = os.path.join(self.project_data_path, "config.json")
         self.config_data = json.load(open(self.json_path))
         self.host = self.config_data.get("host", "localhost")
         self.user = self.config_data.get("user", "root")
