@@ -17,7 +17,6 @@ class SQLQuery:
 
     def read_conifg(self):
         self.json_path = os.path.join(self.code_path, "config.json")
-        print(self.json_path)
         self.config_data = json.load(open(self.json_path))
         self.host = self.config_data.get("host", "localhost")
         self.user = self.config_data.get("user", "root")
@@ -31,7 +30,7 @@ class SQLQuery:
     def get_connection(self):
         self.read_conifg()
         try:
-            if self.db:
+            if self.db and self.check_dbs():
                 self.connection = mysql.connector.connect(
                                                         host=self.host,
                                                         user=self.user,
@@ -48,6 +47,22 @@ class SQLQuery:
                 self.cursor = self.connection.cursor()
         except Exception as e:
             print(f"Couldn't connect to the MySQL server due to the error: {e}")
+    
+    def check_dbs(self):
+        conn = mysql.connector.connect(
+                                        host=self.host,
+                                        user=self.user,
+                                        password=self.password
+                                    )
+
+        cursor = conn.cursor()
+        cursor.execute("SHOW DATABASES")
+
+        databases = [db[0] for db in cursor.fetchall()]
+        if self.db in databases:
+            return True
+        else:
+            return False
 
     def create_db(self):
         if self.connection and self.cursor:
@@ -69,7 +84,7 @@ class SQLQuery:
                                                                         matches INT,
                                                                         innings VARCHAR(50),
                                                                         runs INT,
-                                                                        average FLOAT,
+                                                                        average FLOAT
                                                                         )
                                     """)
             self.connection.commit()
