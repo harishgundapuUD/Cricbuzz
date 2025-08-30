@@ -117,24 +117,36 @@ class SQLQuery:
             self.get_connection()
         query = "SELECT * FROM players"
         self.cursor.execute(query)
+        
+        # Get column names from cursor description
+        columns = [desc[0] for desc in self.cursor.description]
         users = self.cursor.fetchall()
-        return users
-    
+        
+        # Convert to list of dictionaries with column names
+        users_with_columns = []
+        for user in users:
+            user_dict = dict(zip(columns, user))
+            users_with_columns.append(user_dict)
+        
+        return users_with_columns
+
     def update_user(self, input_data):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
-        query = "UPDATE players SET player_id=%s, name=%s, matches=%s, innings=%s, runs=%s, average=%s WHERE id=%s"
-        data = (input.get("player_id"), input_data.get("name"), input_data.get("matches"), input_data.get("innings"), 
+        
+        # Use player_id in WHERE clause instead of id (since your table doesn't have 'id' column)
+        query = "UPDATE players SET name=%s, matches=%s, innings=%s, runs=%s, average=%s WHERE player_id=%s"
+        data = (input_data.get("name"), input_data.get("matches"), input_data.get("innings"), 
                 input_data.get("runs"), input_data.get("average"), input_data.get("player_id"))
         self.cursor.execute(query, data)
         self.connection.commit()
         return True
-    
+
     def delete_user(self, user_id):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
         initial_count = self.get_user_count()
-        query = "DELETE FROM players WHERE id=%s"
+        query = "DELETE FROM players WHERE player_id=%s"
         self.cursor.execute(query, (user_id,))
         self.connection.commit()
         final_count = self.get_user_count()
