@@ -1,19 +1,34 @@
 {
     "live_matches": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live",
-                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
                         "query_strings": ""
                     },
     "score_card": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/scard",
-                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
                         "query_strings": ""
                     },
     "search_player": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search",
-                        "api_key": "4f71d3c691msh1147185ced1aa64p1c26acjsn824213f2239e",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
                         "query_strings": {
                                             "plrN":"{player_name}"
                                         }
-    }
+                    },
+    "player_batting_stats": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/batting",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
+                        "query_strings": ""
+                    },
+    "player_bowling_stats": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/bowling",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
+                        "query_strings": ""
+                    },
+    "player_stats": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
+                        "query_strings": ""
+                    }
 }
