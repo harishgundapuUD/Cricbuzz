@@ -40,7 +40,7 @@ def add_user():
         average = st.text_input("Average",key="average_input")
         
     if st.button("Add User"):
-        before = db.get_user_count()
+        before = db.get_user_count(table="players")
         if name and matches and runs and player_id and innings and average:
             data = {
                         "name": name,
@@ -51,7 +51,7 @@ def add_user():
                         "average": average
                     }
             db.add_user(input_data=data)
-            after = db.get_user_count()
+            after = db.get_user_count(table="players")
             st.success(f"User '{name}' added.")
             st.info(f"Users before: {before}, after: {after}")
         else:
@@ -148,7 +148,7 @@ def delete_user():
 def view_users():
     st.subheader("📋 All Users")
     users = db.get_users()
-    count = db.get_user_count()
+    count = db.get_user_count(table="players")
     st.info(f"Total users: {count}")
     
     if users:

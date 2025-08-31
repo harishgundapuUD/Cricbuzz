@@ -1,0 +1,6 @@
+streamlit
+pandas
+futures
+requests
+mysql-connector
+importlib

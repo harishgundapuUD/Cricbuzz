@@ -34,7 +34,7 @@ def load_live_response(api_input_path, live_json_path):
     live_response = perform_api_call(
         query_data["url"], query_data["api_key"], query_data.get("query_strings")
     )
-    if live_response.json():
+    if live_response:
         json.dump(live_response, open(live_json_path, "w"), indent=4)
         reloaded = True
     return reloaded, live_response
@@ -43,7 +43,7 @@ def load_live_response(api_input_path, live_json_path):
 @st.cache_data(ttl=300)
 def load_scorecards(api_input_path, score_json_path, live_response, reloaded=False):
     """Load scorecards (from cache or API, with parallel calls)"""
-    if not is_file_expired(score_json_path) or not reloaded:
+    if not reloaded:
         return json.load(open(score_json_path))
 
     query_data = json.load(open(api_input_path))["score_card"]

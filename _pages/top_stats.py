@@ -238,6 +238,7 @@ def display_profile_tab(player):
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("**Cricket Details**")
+        st.write(f"Name: {player_stats.get("name")}")
         st.write(f"Role: {player_stats.get('role', '-')}")
         st.write(f"Batting: {player_stats.get('bat', '-')}")
         st.write(f"Bowling: {player_stats.get('bowl', '-')}")

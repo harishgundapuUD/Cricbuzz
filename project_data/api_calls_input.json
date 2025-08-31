@@ -1,40 +1,44 @@
 {
     "live_matches": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
                     },
     "score_card": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/scard",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
                     },
     "search_player": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b",
                         "query_strings": {
                                             "plrN":"{player_name}"
                                         }
                     },
     "player_batting_stats": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/batting",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
                     },
     "player_bowling_stats": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/bowling",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
                     },
     "player_stats": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
                     },
     "indian_players": {
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/teams/v1/2/players",
-                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
-                        "query_strings": ""
-                      }
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
+                      },
+    "recent_matches": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent",
+                        "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b"
+                      },
+    "odi_stats": {
+                    "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/topstats/0",
+                    "api_key": "0becc68aefmsh957b67fc2defad4p18af5fjsn136367a3e60b",
+                    "query_strings": {"statsType":"mostRuns", "matchType":"2"}
+                 }
+
 
 }

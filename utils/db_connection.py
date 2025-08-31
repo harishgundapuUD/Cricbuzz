@@ -50,6 +50,12 @@ class SQLQuery:
                 self.cursor = self.connection.cursor()
         except Exception as e:
             print(f"Couldn't connect to the MySQL server due to the error: {e}")
+
+    def execute_query(self, query):
+        if not self.connection or not self.connection.is_connected() or not self.cursor:
+            self.get_connection()
+        self.cursor.execute(query)
+        return self.cursor
     
     def check_dbs(self):
         conn = mysql.connector.connect(
@@ -87,6 +93,15 @@ class SQLQuery:
             self.connection.commit()
         except Exception as e:
             print(f"Error creating players table: {e}")
+
+    def create_tables(self, table=None):
+        self.read_conifg()
+        try:
+            # print(table)
+            # print(self.table)
+            return self.cursor.execute(table if table else self.table)
+        except Exception as e:
+            print(f"Error creating players table: {e}")
     
     def get_user_count(self, table):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
@@ -116,6 +131,25 @@ class SQLQuery:
         data = (input_data.get("id"), input_data.get("name"), input_data.get("playing_role"), 
                 input_data.get("batting_style"), input_data.get("bowling_style"))
         self.cursor.execute(query, data)
+        self.connection.commit()
+        final_count = self.get_user_count(table="indian_players")
+        return final_count > initial_count
+    
+    def add_entry(self, input_data):
+        if not self.connection or not self.connection.is_connected() or not self.cursor:
+            self.get_connection()
+        table = input_data.get("table")
+        initial_count = self.get_user_count(table=table)
+        ids = input_data.get("columns")
+        values = input_data.get("values")
+        value_input = input_data.get("value_input")
+        # print(table)
+        # print(ids)
+        # print(values)
+        # query = f"INSERT INTO {table} {ids} VALUES {value_input}"
+        query = f"REPLACE INTO {table} {ids} VALUES {value_input};"
+        # print(query)
+        self.cursor.execute(query, values)
         self.connection.commit()
         final_count = self.get_user_count(table="indian_players")
         return final_count > initial_count
