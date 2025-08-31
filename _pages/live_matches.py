@@ -34,9 +34,9 @@ def load_live_response(api_input_path, live_json_path):
     live_response = perform_api_call(
         query_data["url"], query_data["api_key"], query_data.get("query_strings")
     )
+    reloaded = True
     if live_response:
         json.dump(live_response, open(live_json_path, "w"), indent=4)
-        reloaded = True
     return reloaded, live_response
 
 

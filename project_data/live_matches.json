@@ -18,7 +18,7 @@
                                     "startDate": "1756625400000",
                                     "endDate": "1756654200000",
                                     "state": "In Progress",
-                                    "status": "Sri Lanka need 260 runs",
+                                    "status": "Sri Lanka need 187 runs",
                                     "team1": {
                                         "teamId": 12,
                                         "teamName": "Zimbabwe",
@@ -57,8 +57,9 @@
                                     "team2Score": {
                                         "inngs1": {
                                             "inningsId": 2,
-                                            "runs": 18,
-                                            "overs": 5.1
+                                            "runs": 91,
+                                            "wickets": 2,
+                                            "overs": 20.5
                                         }
                                     }
                                 }
@@ -73,9 +74,102 @@
             "seriesMatches": [
                 {
                     "seriesAdWrapper": {
+                        "seriesId": 10581,
+                        "seriesName": "Delhi Premier League 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 129997,
+                                    "seriesId": 10581,
+                                    "seriesName": "Delhi Premier League 2025",
+                                    "matchDesc": "Final",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756647000000",
+                                    "endDate": "1756659600000",
+                                    "state": "Toss",
+                                    "status": "West Delhi Lions opt to bowl",
+                                    "team1": {
+                                        "teamId": 2620,
+                                        "teamName": "Central Delhi Kings",
+                                        "teamSName": "CDK",
+                                        "imageId": 731747
+                                    },
+                                    "team2": {
+                                        "teamId": 2656,
+                                        "teamName": "West Delhi Lions",
+                                        "teamSName": "WDL",
+                                        "imageId": 731750
+                                    },
+                                    "venueInfo": {
+                                        "id": 51,
+                                        "ground": "Arun Jaitley Stadium",
+                                        "city": "Delhi",
+                                        "timezone": "+05:30",
+                                        "latitude": "28.637891",
+                                        "longitude": "77.243073"
+                                    },
+                                    "isTournament": true,
+                                    "seriesStartDt": "1754006400000",
+                                    "seriesEndDt": "1756684800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "Toss"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "seriesAdWrapper": {
                         "seriesId": 10620,
                         "seriesName": "Kerala Cricket League 2025",
                         "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 130718,
+                                    "seriesId": 10620,
+                                    "seriesName": "Kerala Cricket League 2025",
+                                    "matchDesc": "22nd Match",
+                                    "matchFormat": "T20",
+                                    "startDate": "1756646100000",
+                                    "endDate": "1756658700000",
+                                    "state": "In Progress",
+                                    "status": "Kochi Blue Tigers opt to bowl",
+                                    "team1": {
+                                        "teamId": 2774,
+                                        "teamName": "Alleppey Ripples",
+                                        "teamSName": "ALPR",
+                                        "imageId": 731735
+                                    },
+                                    "team2": {
+                                        "teamId": 2733,
+                                        "teamName": "Kochi Blue Tigers",
+                                        "teamSName": "KBT",
+                                        "imageId": 731734
+                                    },
+                                    "venueInfo": {
+                                        "id": 506,
+                                        "ground": "Greenfield International Stadium",
+                                        "city": "Thiruvananthapuram",
+                                        "timezone": "+05:30",
+                                        "latitude": "8.570806",
+                                        "longitude": "76.884328"
+                                    },
+                                    "currBatTeamId": 2774,
+                                    "seriesStartDt": "1755648000000",
+                                    "seriesEndDt": "1757203200000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 6,
+                                            "overs": 1.2
+                                        }
+                                    }
+                                }
+                            },
                             {
                                 "matchInfo": {
                                     "matchId": 130707,
@@ -85,8 +179,8 @@
                                     "matchFormat": "T20",
                                     "startDate": "1756630800000",
                                     "endDate": "1756643400000",
-                                    "state": "In Progress",
-                                    "status": "Aries Kollam Sailors need 21 runs in 30 balls",
+                                    "state": "Complete",
+                                    "status": "Aries Kollam Sailors won by 7 wkts",
                                     "team1": {
                                         "teamId": 2763,
                                         "teamName": "Adani Trivandrum Royals",
@@ -111,7 +205,7 @@
                                     "seriesStartDt": "1755648000000",
                                     "seriesEndDt": "1757203200000",
                                     "isTimeAnnounced": true,
-                                    "stateTitle": "In Progress"
+                                    "stateTitle": "Complete"
                                 },
                                 "matchScore": {
                                     "team1Score": {
@@ -125,9 +219,9 @@
                                     "team2Score": {
                                         "inngs1": {
                                             "inningsId": 2,
-                                            "runs": 158,
-                                            "wickets": 2,
-                                            "overs": 14.6
+                                            "runs": 181,
+                                            "wickets": 3,
+                                            "overs": 17.2
                                         }
                                     }
                                 }
@@ -150,7 +244,7 @@
                                     "startDate": "1756632600000",
                                     "endDate": "1756645200000",
                                     "state": "In Progress",
-                                    "status": "Match reduced to 15 overs per side due to rain",
+                                    "status": "Kanpur Superstars need 66 runs in 42 balls - Match reduced to 15 overs per side due to rain",
                                     "team1": {
                                         "teamId": 2811,
                                         "teamName": "Gaur Gorakhapur Lions",
@@ -171,7 +265,7 @@
                                         "latitude": "26.846694",
                                         "longitude": "80.946166"
                                     },
-                                    "currBatTeamId": 2811,
+                                    "currBatTeamId": 2818,
                                     "seriesStartDt": "1755302400000",
                                     "seriesEndDt": "1757203200000",
                                     "isTimeAnnounced": true,
@@ -181,9 +275,17 @@
                                     "team1Score": {
                                         "inngs1": {
                                             "inningsId": 1,
-                                            "runs": 130,
-                                            "wickets": 6,
-                                            "overs": 13.6
+                                            "runs": 141,
+                                            "wickets": 7,
+                                            "overs": 14.6
+                                        }
+                                    },
+                                    "team2Score": {
+                                        "inngs1": {
+                                            "inningsId": 2,
+                                            "runs": 76,
+                                            "wickets": 2,
+                                            "overs": 7.6
                                         }
                                     }
                                 }
@@ -195,7 +297,7 @@
                     "ad": {
                         "name": "native_matches",
                         "layout": "native_large",
-                        "position": 3
+                        "position": 4
                     }
                 }
             ]
@@ -430,54 +532,6 @@
                         "matches": [
                             {
                                 "matchInfo": {
-                                    "matchId": 111973,
-                                    "seriesId": 9273,
-                                    "seriesName": "England Domestic One-Day Cup 2025",
-                                    "matchDesc": "Semi Final 1",
-                                    "matchFormat": "ODI",
-                                    "startDate": "1756634400000",
-                                    "endDate": "1756663200000",
-                                    "state": "In Progress",
-                                    "status": "Somerset opt to bowl",
-                                    "team1": {
-                                        "teamId": 147,
-                                        "teamName": "Worcestershire",
-                                        "teamSName": "WORCS",
-                                        "imageId": 172214
-                                    },
-                                    "team2": {
-                                        "teamId": 119,
-                                        "teamName": "Somerset",
-                                        "teamSName": "SOM",
-                                        "imageId": 172199
-                                    },
-                                    "venueInfo": {
-                                        "id": 225,
-                                        "ground": "New Road",
-                                        "city": "Worcester",
-                                        "timezone": "+01:00",
-                                        "latitude": "52.189294",
-                                        "longitude": "-2.2268"
-                                    },
-                                    "currBatTeamId": 147,
-                                    "seriesStartDt": "1754265600000",
-                                    "seriesEndDt": "1758412800000",
-                                    "isTimeAnnounced": true,
-                                    "stateTitle": "In Progress"
-                                },
-                                "matchScore": {
-                                    "team1Score": {
-                                        "inngs1": {
-                                            "inningsId": 1,
-                                            "runs": 169,
-                                            "wickets": 4,
-                                            "overs": 33.6
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "matchInfo": {
                                     "matchId": 111981,
                                     "seriesId": 9273,
                                     "seriesName": "England Domestic One-Day Cup 2025",
@@ -517,9 +571,57 @@
                                     "team1Score": {
                                         "inngs1": {
                                             "inningsId": 1,
-                                            "runs": 138,
-                                            "wickets": 4,
-                                            "overs": 32.6
+                                            "runs": 260,
+                                            "wickets": 5,
+                                            "overs": 46.6
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "matchInfo": {
+                                    "matchId": 111973,
+                                    "seriesId": 9273,
+                                    "seriesName": "England Domestic One-Day Cup 2025",
+                                    "matchDesc": "Semi Final 1",
+                                    "matchFormat": "ODI",
+                                    "startDate": "1756634400000",
+                                    "endDate": "1756663200000",
+                                    "state": "In Progress",
+                                    "status": "Somerset opt to bowl",
+                                    "team1": {
+                                        "teamId": 147,
+                                        "teamName": "Worcestershire",
+                                        "teamSName": "WORCS",
+                                        "imageId": 172214
+                                    },
+                                    "team2": {
+                                        "teamId": 119,
+                                        "teamName": "Somerset",
+                                        "teamSName": "SOM",
+                                        "imageId": 172199
+                                    },
+                                    "venueInfo": {
+                                        "id": 225,
+                                        "ground": "New Road",
+                                        "city": "Worcester",
+                                        "timezone": "+01:00",
+                                        "latitude": "52.189294",
+                                        "longitude": "-2.2268"
+                                    },
+                                    "currBatTeamId": 147,
+                                    "seriesStartDt": "1754265600000",
+                                    "seriesEndDt": "1758412800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 268,
+                                            "wickets": 9,
+                                            "overs": 49.3
                                         }
                                     }
                                 }
@@ -532,6 +634,61 @@
         {
             "matchType": "Women",
             "seriesMatches": [
+                {
+                    "seriesAdWrapper": {
+                        "seriesId": 9386,
+                        "seriesName": "The Hundred Womens Competition 2025",
+                        "matches": [
+                            {
+                                "matchInfo": {
+                                    "matchId": 114272,
+                                    "seriesId": 9386,
+                                    "seriesName": "The Hundred Womens Competition 2025",
+                                    "matchDesc": "Final",
+                                    "matchFormat": "HUN",
+                                    "startDate": "1756646100000",
+                                    "endDate": "1756646100000",
+                                    "state": "In Progress",
+                                    "status": "Northern Superchargers Women opt to bowl",
+                                    "team1": {
+                                        "teamId": 620,
+                                        "teamName": "Southern Brave Women",
+                                        "teamSName": "SOUW",
+                                        "imageId": 202721
+                                    },
+                                    "team2": {
+                                        "teamId": 619,
+                                        "teamName": "Northern Superchargers Women",
+                                        "teamSName": "NORW",
+                                        "imageId": 202720
+                                    },
+                                    "venueInfo": {
+                                        "id": 19,
+                                        "ground": "Lord's",
+                                        "city": "London",
+                                        "timezone": "+01:00",
+                                        "latitude": "51.529488",
+                                        "longitude": "-0.172926"
+                                    },
+                                    "currBatTeamId": 620,
+                                    "seriesStartDt": "1754265600000",
+                                    "seriesEndDt": "1756684800000",
+                                    "isTimeAnnounced": true,
+                                    "stateTitle": "In Progress"
+                                },
+                                "matchScore": {
+                                    "team1Score": {
+                                        "inngs1": {
+                                            "inningsId": 1,
+                                            "runs": 6,
+                                            "overs": 10.0
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
                 {
                     "seriesAdWrapper": {
                         "seriesId": 10697,
@@ -667,5 +824,5 @@
         "seoTitle": "Live Cricket Score - Scorecard and Match Results",
         "webURL": "www.cricbuzz.com/live-cricket-scores/"
     },
-    "responseLastUpdated": "1756642652"
+    "responseLastUpdated": "1756646556"
 }
