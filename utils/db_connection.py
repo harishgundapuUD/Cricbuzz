@@ -12,17 +12,19 @@ class SQLQuery:
         self.db = db
         self.code_path = os.path.dirname(os.path.abspath(__file__))
         self.project_data_path = os.path.join(os.path.dirname(self.code_path), "project_data")
+        self.read_conifg()
         self.get_connection()
         self.create_db()
         self.create_tables()
 
     def read_conifg(self):
-        self.json_path = os.path.join(self.project_data_path, "config.json")
+        self.json_path = os.path.join(self.project_data_path, "db_config.json")
         self.config_data = json.load(open(self.json_path))
         self.host = self.config_data.get("host", "localhost")
         self.user = self.config_data.get("user", "root")
         self.password = self.config_data.get("password", "12345678")
         self.db = self.config_data.get("db", "cricbuzz")
+        self.table = self.config_data.get("players_table")
     
     def save_config(self):
         with open(self.json_path, 'w') as file:
@@ -76,26 +78,20 @@ class SQLQuery:
             except Exception as e:
                 print(f"Error creating database: {e}")
     
-    def create_tables(self):
+    def create_tables(self, table=None):
+        self.read_conifg()
         try:
-            self.cursor.execute("""
-                                    CREATE TABLE IF NOT EXISTS players (
-                                                                        player_id INT PRIMARY KEY,
-                                                                        name VARCHAR(100),
-                                                                        matches INT,
-                                                                        innings VARCHAR(50),
-                                                                        runs INT,
-                                                                        average FLOAT
-                                                                        )
-                                    """)
+            # print(table)
+            # print(self.table)
+            self.cursor.execute(table if table else self.table)
             self.connection.commit()
         except Exception as e:
             print(f"Error creating players table: {e}")
     
-    def get_user_count(self):
+    def get_user_count(self, table):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
-        query = "SELECT COUNT(*) FROM players"
+        query = f"SELECT COUNT(*) FROM {table}"
         self.cursor.execute(query)
         count = self.cursor.fetchone()[0]
         return count
@@ -103,13 +99,25 @@ class SQLQuery:
     def add_user(self, input_data):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
-        initial_count = self.get_user_count()
+        initial_count = self.get_user_count(table="players")
         query = "INSERT INTO players (player_id, name, matches, innings, runs, average) VALUES (%s, %s, %s, %s, %s, %s)"
         data = (input_data.get("player_id"), input_data.get("name"), input_data.get("matches"), 
                 input_data.get("innings"), input_data.get("runs"), input_data.get("average"))
         self.cursor.execute(query, data)
         self.connection.commit()
-        final_count = self.get_user_count()
+        final_count = self.get_user_count(table="players")
+        return final_count > initial_count
+    
+    def add_indian_user(self, input_data):
+        if not self.connection or not self.connection.is_connected() or not self.cursor:
+            self.get_connection()
+        initial_count = self.get_user_count(table="indian_players")
+        query = "INSERT INTO indian_players (id, name, playing_role, batting_style, bowling_style) VALUES (%s, %s, %s, %s, %s)"
+        data = (input_data.get("id"), input_data.get("name"), input_data.get("playing_role"), 
+                input_data.get("batting_style"), input_data.get("bowling_style"))
+        self.cursor.execute(query, data)
+        self.connection.commit()
+        final_count = self.get_user_count(table="indian_players")
         return final_count > initial_count
     
     def get_users(self):
@@ -145,10 +153,10 @@ class SQLQuery:
     def delete_user(self, user_id):
         if not self.connection or not self.connection.is_connected() or not self.cursor:
             self.get_connection()
-        initial_count = self.get_user_count()
+        initial_count = self.get_user_count(table="players")
         query = "DELETE FROM players WHERE player_id=%s"
         self.cursor.execute(query, (user_id,))
         self.connection.commit()
-        final_count = self.get_user_count()
+        final_count = self.get_user_count(table="players")
         return final_count < initial_count
 

@@ -30,5 +30,11 @@
                         "url": "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}",
                         "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
                         "query_strings": ""
-                    }
+                    },
+    "indian_players": {
+                        "url": "https://cricbuzz-cricket.p.rapidapi.com/teams/v1/2/players",
+                        "api_key": "9996c01a46msh7b7427cb6115dccp1e95c9jsn5c7e59694847",
+                        "query_strings": ""
+                      }
+
 }

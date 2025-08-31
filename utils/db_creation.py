@@ -1,5 +1,7 @@
+import os
 import json
 from db_connection import SQLQuery
+from api_calls import perform_api_call
 
 def extract_player_data_total(player_dict):
     extracted_data = []
@@ -62,15 +64,76 @@ def extract_player_data_total(player_dict):
     
     return extracted_data
 
+def create_and_update_players_data(table):
+    db_connection.create_tables(table=table)
+    # print(json.load(open(r"C:\Users\haris\OneDrive\Desktop\Guvi\Live class codes\Projects\project_data\player_stats.json")))
+    player_data = extract_player_data_total(json.load(open(r"C:\Users\haris\OneDrive\Desktop\Guvi\Live class codes\Projects\project_data\player_stats.json")))
+    for player in player_data:
+        db_connection.add_user(input_data=player)
+        # print(f"added player: {player}")
+        # print("\n")
+
+import json
+
+def extract_player_info(json_string):
+    """
+    Extract player information with properly formatted roles.
+    """
+    data = json_string
+    players_info = []
+    current_role = "Unknown"
+    
+    for player in data["player"]:
+        # If this is a role header (no ID), update current role
+        if "id" not in player:
+            role_name = player.get("name", "").strip()
+            current_role = role_name.title() if role_name else "Unknown"
+            continue
+        
+        # If this is a player with ID, extract their info
+        players_info.append({
+            "id": int(player.get("id")),
+            "name": player.get("name"),
+            "role": current_role,
+            "batting_style": player.get("battingStyle"),
+            "bowling_style": player.get("bowlingStyle")
+        })
+    
+    return players_info
+
+def create_and_update_indian_players(table):
+    api_data = api_config_data.get("indian_players")
+    local_path = os.path.join(configs_path, "indian_players.json")
+    json_data = None
+    if os.path.exists(local_path):
+        json_data = json.load(open(local_path))
+        if json_data:
+            players = extract_player_info(json_string=json_data)
+            print("inside the json reading part")
+            for player in players:
+                db_connection.create_tables(table=table)
+                db_connection.add_indian_user(input_data=player)
+                print(f"added player: {player}")
+                print("\n")
+    if not os.path.exists(local_path) or not json_data:
+        json_data = perform_api_call(url=api_data.get("url"), api_key=api_data.get("api_key"))
+        with open(local_path, "w") as indian_players:
+            json.dump(json_data, indian_players, indent=4)
+        
+        players = extract_player_info(json_string=json_data)
+        for player in players:
+            db_connection.create_tables(table=table)
+            db_connection.add_indian_user(input_data=player)
+            print(f"added player: {player}")
+            print("\n")
+
+configs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "project_data")
+db_config_data = json.load(open(os.path.join(configs_path, "db_config.json")))
+api_config_data = json.load(open(os.path.join(configs_path, "api_calls_input.json")))
 
 # creating the db
 db_connection = SQLQuery()
 db_connection.get_connection()
 db_connection.create_db()
-db_connection.create_tables()
-print(json.load(open(r"C:\Users\haris\OneDrive\Desktop\Guvi\Live class codes\Projects\project_data\player_stats.json")))
-player_data = extract_player_data_total(json.load(open(r"C:\Users\haris\OneDrive\Desktop\Guvi\Live class codes\Projects\project_data\player_stats.json")))
-for player in player_data:
-    db_connection.add_user(input_data=player)
-    print(f"added player: {player}")
-    print("\n")
+# create_and_update_players_data(table=db_config_data.get("players_table"))
+# create_and_update_indian_players(table=db_config_data.get("indian_players_table"))
